@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
@@ -17,20 +21,12 @@
         <section class="inputContainer">
           <form class="form">
             <input type="text" id="textInput" class="textInput" />
-            <input
-              type="button"
-              value="Submit"
-              id="submitBtn"
-              class="submitBtn"
-            />
+            <input type="submit" id="submitBtn" class="submitBtn" />
           </form>
         </section>
         <section class="groceryContainer">
-          <div class="groceryList">
-            <div class="groceryItem"></div>
-            <div class="deleteAndEdit"></div>
-          </div>
-          <div class="clearItems"></div>
+          <div class="groceryList"></div>
+          <div class="clearItems"><button>remove clearItems</button></div>
         </section>
       </div>
     </div>
