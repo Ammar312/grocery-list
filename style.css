@@ -1,49 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* font-family: "Heebo", sans-serif; */
+  font-family: "Cabin", sans-serif;
 }
 .container {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+.mainContainer {
+  width: 40%;
+  height: auto;
+  border: 2px solid greenyellow;
+  border-radius: 22px;
+  padding: 1em;
+  margin-top: 2em;
+}
+.alert {
   display: flex;
   justify-content: center;
   align-items: center;
+  visibility: hidden;
+  font-size: 1.4rem;
+  margin: 1em;
+  padding: 0.2em;
+  border-radius: 6px;
+  letter-spacing: 0.2em;
+  text-transform: capitalize;
 }
-.mainContainer {
-  width: 45%;
-  height: 50vh;
-  background-color: antiquewhite;
-  border-radius: 22px;
+.alertgreen {
+  visibility: visible;
+  border: 2px solid yellowgreen;
+  color: yellowgreen;
+  background: linear-gradient(to right, rgb(230, 247, 230), rgb(240, 253, 240));
 }
-.mainHeading {
+.alertred {
+  visibility: visible;
+  border: 2px solid red;
+  color: red;
+  background: linear-gradient(to right, rgb(248, 239, 238), rgb(250, 244, 244));
+}
+.mainHeading h2 {
   text-align: center;
-  font-size: 1.9rem;
+  font-size: 2.5rem;
 }
 .inputContainer {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 2.5em;
 }
 .textInput {
-  width: 28vw;
-  height: 4.5vh;
-  margin: 0;
-  outline-color: blue;
+  width: 22vw;
+  height: 6.7vh;
+  margin: 0.5em;
+  outline-color: yellow;
   border: none;
-  padding: 0px;
-  font-size: 1.3rem;
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
+  padding: 0.6em;
+  font-size: 1.4rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 28px 0 rgb(0 0 0 / 12%);
+  text-transform: capitalize;
 }
 .submitBtn {
-  width: 6vw;
-  height: 5vh;
+  width: 8vw;
+  height: 2.3em;
+  font-size: 1.3rem;
   margin: 0;
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
-  border: none;
-  background-color: rgb(58, 138, 230);
+  border-radius: 8px;
+  border: 2px solid green;
+  background-color: white;
+  color: green;
   cursor: pointer;
-  padding: 0;
+  padding: 0.5em;
+  text-align: center;
+}
+.groceryContainer {
+  display: flex;
+  flex-direction: column;
+}
+.groceryList {
+  display: flex;
+  flex-direction: column;
+}
+.groceryItems {
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  background: linear-gradient(to right, #56ab2f, #a8e063);
+  margin: 0.5em 2.3em;
+  padding: 0.7em;
+  border: 1px solid whitesmoke;
+  border-radius: 6px;
+  box-shadow: 0 2px 28px 0 rgb(0 0 0 / 12%);
+  text-transform: capitalize;
+  font-size: 1.3rem;
+  letter-spacing: 0.06em;
+}
+.editBtn {
+  color: green;
+  border: none;
+  font-size: 1.2rem;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.deleteBtn {
+  color: red;
+  border: none;
+  font-size: 1.2rem;
+  background-color: transparent;
+  cursor: pointer;
+}
+.clearItems {
+  display: flex;
+  justify-content: center;
+}
+.clearItems button {
+  font-size: 1.5rem;
+  padding: 0.5em;
+  background: transparent;
+  color: red;
+  border-radius: 4px;
+  border: 2px solid red;
+  cursor: pointer;
 }

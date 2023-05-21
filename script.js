@@ -23,12 +23,12 @@ const addItem = (e) => {
     element.innerHTML = `<p class="title">${textInputValue}</p>
     <div class="btn-container">
       <!-- edit btn -->
-      <button type="button" class="editBtn">
-      <i class="bi bi-pencil-square"></i>
+      <button type="button" class="editBtn" title="Edit item">
+      <i class="bi bi-pencil-square editIcon"></i>
       </button>
       <!-- delete btn -->
-      <button type="button" class="deleteBtn">
-      <i class="bi bi-trash"></i>
+      <button type="button" class="deleteBtn" title="Delete item">
+      <i class="bi bi-trash deleteIcon"></i>
       </button>
     </div>`;
     const editBtn = element.querySelector(".editBtn");
