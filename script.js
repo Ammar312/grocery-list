@@ -17,7 +17,7 @@ const addItem = (e) => {
   if (textInputValue !== "" && editFlag === false) {
     const element = document.createElement("article");
     const attr = document.createAttribute("dataId");
-    attr.value = id;
+    attr.value = id.toString();
     element.setAttributeNode(attr);
     element.classList.add("groceryItems");
     element.innerHTML = `<p class="title">${textInputValue}</p>
@@ -37,16 +37,16 @@ const addItem = (e) => {
     deleteBtn.addEventListener("click", deleteItem);
     groceryList.appendChild(element);
     displayAlert("item is added", "green");
-    // container.classList.add("showGroceryContainer");
-    addToLocalStorage(id, textInputValue);
+    groceryContainer.classList.add("showGroceryContainer");
     setBackToDefault();
+    addToLocalStorage(id, textInputValue);
   } else if (textInputValue !== "" && editFlag === true) {
     editElement.innerHTML = textInputValue;
-    displayAlert("Value Changed", "green");
+    displayAlert("Item Changed", "green");
     editLocalStorage(editId, textInputValue);
     setBackToDefault();
   } else {
-    displayAlert("Please enter a item first", "red");
+    displayAlert(" enter a item ", "red");
   }
 };
 const displayAlert = (txt, clss) => {
@@ -56,7 +56,7 @@ const displayAlert = (txt, clss) => {
   setTimeout(() => {
     alertBox.textContent = "";
     alertBox.classList.remove(`alert${clss}`);
-  }, 1000);
+  }, 1300);
 };
 const setBackToDefault = () => {
   textInput.value = "";
@@ -70,19 +70,21 @@ const editItem = (e) => {
   editElement = e.currentTarget.parentElement.previousElementSibling;
   textInput.value = editElement.innerHTML;
   editFlag = true;
-  editId = ele1.dataset.id;
+  editId = ele1.getAttribute("dataId");
   submitBtn.value = "Edit";
+  console.log(editId);
 };
 const deleteItem = (e) => {
   const ele2 = e.currentTarget.parentElement.parentElement;
-  const iD = ele2.dataset.id;
+  const id = ele2.getAttribute("dataId");
   groceryList.removeChild(ele2);
   if (groceryList.children.length === 0) {
     groceryContainer.classList.remove("showGroceryContainer");
   }
+  console.log(id);
   displayAlert("Item removed", "red");
   setBackToDefault();
-  removeFromLocalStorage(iD);
+  removeFromLocalStorage(id);
 };
 const clearItemsFunc = () => {
   const items = document.querySelectorAll(".groceryItems");
@@ -94,7 +96,6 @@ const clearItemsFunc = () => {
   groceryContainer.classList.remove("showGroceryContainer");
   setBackToDefault();
   displayAlert("List is empty now", "green");
-  console.log("items are removed");
   localStorage.removeItem("groceryList");
 };
 // -----Local Storage-----
@@ -110,6 +111,14 @@ const getLocalStorage = () => {
     : [];
 };
 
+const removeFromLocalStorage = (id) => {
+  let items = getLocalStorage();
+  items = items.filter((item) => {
+    return item.id !== id;
+  });
+  localStorage.setItem("groceryList", JSON.stringify(items));
+};
+
 const editLocalStorage = (id, value) => {
   let items = getLocalStorage();
   items = items.map((item) => {
@@ -117,15 +126,6 @@ const editLocalStorage = (id, value) => {
       item.value = value;
     }
     return item;
-  });
-  localStorage.setItem("groceryList", JSON.stringify(items));
-};
-const removeFromLocalStorage = (id) => {
-  let items = getLocalStorage();
-  items = items.filter((item) => {
-    if (item.id !== id) {
-      return item;
-    }
   });
   localStorage.setItem("groceryList", JSON.stringify(items));
 };
@@ -142,7 +142,7 @@ const setUpItems = () => {
 const createListItems = (id, value) => {
   const element = document.createElement("article");
   const attr = document.createAttribute("dataId");
-  attr.value = id;
+  attr.value = id.toString();
   element.setAttributeNode(attr);
   element.classList.add("groceryItems");
   element.innerHTML = `<p class="title">${value}</p>

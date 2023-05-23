@@ -1,28 +1,32 @@
-@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500&display=swap");
-
 @import url("https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   /* font-family: "Heebo", sans-serif; */
-  font-family: "Cabin", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 .container {
   width: 100%;
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  /* align-items: center; */
+  align-items: center;
+  background: linear-gradient(to right, #c9f7bd, #eff8ed, #c9f7bd);
+  /* background: linear-gradient(to right, #37f308, #0f9b0f); */
 }
 .mainContainer {
   width: 40%;
   height: auto;
-  border: 2px solid greenyellow;
-  border-radius: 22px;
+  border-radius: 12px;
   padding: 1em;
   margin-top: 2em;
+  margin-bottom: 2em;
+  background: rgb(255, 255, 255);
+  box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.267);
 }
 .alert {
   display: flex;
@@ -48,9 +52,11 @@
   color: red;
   background: linear-gradient(to right, rgb(248, 239, 238), rgb(250, 244, 244));
 }
-.mainHeading h2 {
+.mainHeading h1 {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 3.4rem;
+  font-weight: 600;
+  color: #258128;
 }
 .inputContainer {
   display: flex;
@@ -59,37 +65,55 @@
   margin-bottom: 2.5em;
 }
 .textInput {
-  width: 22vw;
-  height: 6.7vh;
+  width: 71%;
+  /* height: 8vh; */
   margin: 0.5em;
-  outline-color: yellow;
-  border: none;
+  outline-color: green;
+  border: 2px solid whitesmoke;
   padding: 0.6em;
   font-size: 1.4rem;
   border-radius: 8px;
-  box-shadow: 0 2px 28px 0 rgb(0 0 0 / 12%);
-  text-transform: capitalize;
+  box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.253);
+  background-color: white;
+}
+.textInput:hover {
+  border: 2px solid #56ab2f;
+}
+.textInput::placeholder {
+  color: rgb(100, 100, 100);
 }
 .submitBtn {
-  width: 8vw;
-  height: 2.3em;
-  font-size: 1.3rem;
+  /* width: 8vw; */
+  box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.089);
+  height: 3em;
+  font-size: 1.1rem;
   margin: 0;
-  border-radius: 8px;
+  border-radius: 6px;
   border: 2px solid green;
   background-color: white;
   color: green;
   cursor: pointer;
   padding: 0.5em;
   text-align: center;
+  transition: all 0.5s ease-out;
+}
+.submitBtn:hover {
+  background: #287e00;
+  color: white;
 }
 .groceryContainer {
   display: flex;
   flex-direction: column;
+  visibility: hidden;
+}
+.showGroceryContainer {
+  visibility: visible;
 }
 .groceryList {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 16px;
 }
 .groceryItems {
   width: 75%;
@@ -98,14 +122,17 @@
   align-items: center;
   color: white;
   background: linear-gradient(to right, #56ab2f, #a8e063);
-  margin: 0.5em 2.3em;
+  /* margin: 0.5em 2.3em; */
   padding: 0.7em;
-  border: 1px solid whitesmoke;
   border-radius: 6px;
-  box-shadow: 0 2px 28px 0 rgb(0 0 0 / 12%);
+  box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.158);
   text-transform: capitalize;
   font-size: 1.3rem;
   letter-spacing: 0.06em;
+  transition: all 0.3s ease-in;
+}
+.groceryItems:hover {
+  transform: scale(1.05, 1.05);
 }
 .editBtn {
   color: green;
@@ -122,16 +149,76 @@
   background-color: transparent;
   cursor: pointer;
 }
-.clearItems {
+.clearDiv {
   display: flex;
   justify-content: center;
 }
-.clearItems button {
-  font-size: 1.5rem;
+.clearItems {
+  font-size: 1.3rem;
   padding: 0.5em;
+  margin: 0.8em;
   background: transparent;
   color: red;
   border-radius: 4px;
   border: 2px solid red;
   cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+.clearItems:hover {
+  background-color: red;
+  color: white;
+  transform: scale(1.1, 1.1);
+}
+@media screen and (max-width: 1040px) {
+  .mainContainer {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 925px) {
+  .mainContainer {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .mainHeading h1 {
+    font-size: 2.8rem;
+  }
+  .textInput {
+    width: 60%;
+  }
+  .submitBtn {
+    font-size: 1rem;
+    height: 3em;
+  }
+  .groceryItems {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 322px) {
+  .mainContainer {
+    width: 100%;
+  }
+  .mainHeading h1 {
+    font-size: 2rem;
+  }
+  .inputContainer {
+    width: 100%;
+  }
+  .textInput {
+    width: 80%;
+    margin: 20px;
+  }
+  .submitBtn {
+    margin-left: 30vw;
+  }
+  .groceryItems {
+    width: 100%;
+  }
+  .alert {
+    font-size: 1rem;
+  }
+  .clearItems {
+    font-size: 1rem;
+  }
 }

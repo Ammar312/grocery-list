@@ -9,24 +9,33 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <link rel="shortcut icon" href="./groceries.png" type="image/x-icon" />
+    <title>Grocery Bud</title>
   </head>
   <body>
     <div class="container">
       <div class="mainContainer">
         <div class="mainHeading">
           <p class="alert">Please enter a value</p>
-          <h2>Grocery Bud</h2>
+          <h1>Grocery Bud</h1>
         </div>
         <section class="inputContainer">
           <form class="form">
-            <input type="text" id="textInput" class="textInput" />
+            <input
+              type="text"
+              id="textInput"
+              class="textInput"
+              placeholder="e.g: mango"
+              spellcheck="false"
+            />
             <input type="submit" id="submitBtn" class="submitBtn" />
           </form>
         </section>
         <section class="groceryContainer">
           <div class="groceryList"></div>
-          <div class="clearItems"><button>Remove Items</button></div>
+          <div class="clearDiv">
+            <button class="clearItems">Remove Items</button>
+          </div>
         </section>
       </div>
     </div>
